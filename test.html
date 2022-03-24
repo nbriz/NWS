@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NWS Test Page</title>
+    <style media="screen">
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      section {
+        max-width: 400px;
+        text-align: center;
+      }
+
+      #forecast {
+        text-align: left;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <section>
+      <div id="forecast"></div>
+      <i>(view console log for details)</i>
+    </section>
+
+    <script src="NWS.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nbriz/Maths/Maths.js"></script>
+    <script>
+
+      NWS.getGeo(true)
+      NWS.getPoint(null, null, true)
+
+      async function main () {
+        const d = await NWS.getForecast(null, true)
+        console.log(d)
+        // add detailed forecast text to page
+        const f = document.querySelector('#forecast')
+        f.textContent = d.detailedForecast
+        // change background color based on current temperature
+        const hue = Maths.map(d.temperature, 0, 100, 240, 360)
+        document.body.style.backgroundColor = `hsl(${hue}deg, 50%, 70%)`
+      }
+
+      main()
+    </script>
+  </body>
+</html>

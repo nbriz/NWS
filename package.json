@@ -1,0 +1,19 @@
+{
+  "name": "NWS",
+  "version": "1.0.0",
+  "description": "Helper functions that abstract the National Weather Service API.",
+  "main": "NWS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nbriz/NWS.git"
+  },
+  "author": "Nick Briz <nickbriz@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nbriz/NWS/issues"
+  },
+  "homepage": "https://github.com/nbriz/NWS#readme"
+}
